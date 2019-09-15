@@ -147,8 +147,7 @@ def page_16_17(file):
             ifsc = df[0]['data'][5][1]['text']
             bank_account_type = df[0]['data'][4][1]['text']
             micr = df[0]['data'][6][1]['text']
-            print(bank, account_number, ifsc, bank_account_type, micr)
-
+            print("Extracting page 16")
         elif i == 17:
             df = read_pdf(file, output_format="json", pages=i)
             facility = df[0]['data'][1][1]['text']
@@ -159,7 +158,7 @@ def page_16_17(file):
             emi_amount = df[0]['data'][7][1]['text']
             repayment = df[0]['data'][8][1]['text']
             risk_category = df[0]['data'][9][1]['text']
-            print(facility, facility_type, max_sanctioned, purpose, tenure, emi_amount, repayment, risk_category)
+            print("Extracting page 17")
 
 # if __name__ == '__main__':
     # main()
