@@ -81,7 +81,7 @@ def page_1_2(file):
 
     for i in [1, 2]:
         if i == 1:
-            df = read_pdf(file, output_format="json", pages=i)
+            df = read_pdf(file, output_format="json", pages=i, silent=True)
             account_type = df[0]['data'][0][1]['text']
             name = df[0]['data'][1][1]['text']
             father_name = df[0]['data'][2][1]['text']
@@ -109,7 +109,7 @@ def page_1_2(file):
             print("Extracting from page 1")
 
         elif i == 2:
-            df = read_pdf(file, output_format="json", pages=i)
+            df = read_pdf(file, output_format="json", pages=i, silent=True)
             # loan info page2
             loan_id = df[0]['data'][1][2]['text']
             prospect_no = df[0]['data'][3][2]['text']
@@ -141,7 +141,7 @@ def page_1_2(file):
 def page_16_17(file):
     for i in [16, 17]:
         if i == 16:
-            df = read_pdf(file, output_format="json", pages=i)
+            df = read_pdf(file, output_format="json", pages=i, silent=True)
             bank = df[0]['data'][1][1]['text']
             account_number = df[0]['data'][3][1]['text']
             ifsc = df[0]['data'][5][1]['text']
@@ -149,7 +149,7 @@ def page_16_17(file):
             micr = df[0]['data'][6][1]['text']
             print("Extracting page 16")
         elif i == 17:
-            df = read_pdf(file, output_format="json", pages=i)
+            df = read_pdf(file, output_format="json", pages=i, silent=True)
             facility = df[0]['data'][1][1]['text']
             facility_type = df[0]['data'][2][1]['text']
             max_sanctioned = df[0]['data'][3][1]['text']

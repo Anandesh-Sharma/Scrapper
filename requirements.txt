@@ -6,7 +6,6 @@ attrs==19.1.0
 autopep8==1.4.4
 backcall==0.1.0
 black==19.3b0
-Brlapi==0.6.6
 camelot-py==0.7.3
 certifi==2019.6.16
 chardet==3.0.4
@@ -15,7 +14,6 @@ command-not-found==0.3
 cozmo==1.4.10
 cozmoclad==3.4.0
 cryptography==2.1.4
-cupshelpers==1.0
 cycler==0.10.0
 decorator==4.4.0
 defer==1.0.6
