@@ -1035,7 +1035,6 @@
         "/songs": {
             "post": {
                 "summary": "Use below schema to generate new songs",
-                "description" : "Add songs as a json",
                 "tags": [
                     "songs"
                 ],
