@@ -2,71 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "JukeBox",
-        "description": "# Jukebox API
-​
-## Description
-The Jukebox API provides a comprehensive set of endpoints to interact with a digital jukebox system. This API allows users to browse songs, create playlists, control playback, and manage the jukebox's functionality. It offers a seamless integration for developers to build applications that enhance the jukebox experience and offer new features to users.
-​
-## Base URL
-The base URL for all API endpoints is: `https://api.jukebox.com/v1`
-​
-## Authentication
-The API uses OAuth 2.0 for authentication. Clients must obtain an access token by following the OAuth 2.0 authorization flow. This ensures secure access to the API and protects user data.
-​
-## Endpoints
-​
-### Get All Songs
-Returns a list of all available songs in the jukebox.
-​
-- Method: GET
-- Endpoint: `/songs`
-- Response:
-    - Status Code: 200 (OK)
-    - Body: Array of song objects containing details like song ID, title, artist, and duration.
-​
-### Create Playlist
-Creates a new playlist with the given name.
-​
-- Method: POST
-- Endpoint: `/playlists`
-- Request Body: JSON object containing the playlist name.
-- Response:
-    - Status Code: 201 (Created)
-    - Body: JSON object containing the playlist ID and name.
-​
-### Add Song to Playlist
-Adds a song to a specific playlist.
-​
-- Method: POST
-- Endpoint: `/playlists/{playlistId}/songs`
-- Request Body: JSON object containing the song ID.
-- Response:
-    - Status Code: 200 (OK)
-    - Body: JSON object containing the updated playlist details.
-​
-### Play Playlist
-Starts playing the specified playlist on the jukebox.
-​
-- Method: POST
-- Endpoint: `/playlists/{playlistId}/play`
-- Response:
-    - Status Code: 200 (OK)
-    - Body: JSON object confirming the playlist playback.
-​
-### Control Playback
-Controls the playback of the jukebox, such as pausing, resuming, or stopping the current song.
-​
-- Method: POST
-- Endpoint: `/playback/{action}`
-- Allowed Actions: `pause`, `resume`, `stop`
-- Response:
-    - Status Code: 200 (OK)
-    - Body: JSON object confirming the action taken.
-​
-## Business Information
-The Jukebox API is provided by Jukebox Inc., a leading provider of digital jukebox solutions. By integrating this API into your application, you can enhance the user experience by offering a wide range of music options, creating personalized playlists, and providing seamless control over the jukebox's functionality. For more information about Jukebox Inc. and its services, please visit our website at [jukebox.com](https://www.jukebox.com).
-​
-Feel free to customize the business information section according to your requirements.",
+        "description": "# Jukebox API\n​\n## Description\nThe Jukebox API provides a comprehensive set of endpoints to interact with a digital jukebox system. This API allows users to browse songs, create playlists, control playback, and manage the jukebox's functionality. It offers a seamless integration for developers to build applications that enhance the jukebox experience and offer new features to users.\n​\n## Base URL\nThe base URL for all API endpoints is: `https://api.jukebox.com/v1`\n​\n## Authentication\nThe API uses OAuth 2.0 for authentication. Clients must obtain an access token by following the OAuth 2.0 authorization flow. This ensures secure access to the API and protects user data.\n​\n## Endpoints\n​\n### Get All Songs\nReturns a list of all available songs in the jukebox.\n​\n- Method: GET\n- Endpoint: `/songs`\n- Response:\n- Status Code: 200 (OK)\n- Body: Array of song objects containing details like song ID, title, artist, and duration.\n​\n### Create Playlist\nCreates a new playlist with the given name.\n​\n- Method: POST\n- Endpoint: `/playlists`\n- Request Body: JSON object containing the playlist name.\n- Response:\n- Status Code: 201 (Created)\n- Body: JSON object containing the playlist ID and name.\n​\n### Add Song to Playlist\nAdds a song to a specific playlist.\n​\n- Method: POST\n- Endpoint: `/playlists/{playlistId}/songs`\n- Request Body: JSON object containing the song ID.\n- Response:\n- Status Code: 200 (OK)\n- Body: JSON object containing the updated playlist details.\n​\n### Play Playlist\nStarts playing the specified playlist on the jukebox.\n​\n- Method: POST\n- Endpoint: `/playlists/{playlistId}/play`\n- Response:\n- Status Code: 200 (OK)\n- Body: JSON object confirming the playlist playback.\n​\n### Control Playback\nControls the playback of the jukebox, such as pausing, resuming, or stopping the current song.\n​\n- Method: POST\n- Endpoint: `/playback/{action}`\n- Allowed Actions: `pause`, `resume`, `stop`\n- Response:\n- Status Code: 200 (OK)\n- Body: JSON object confirming the action taken.\n​\n## Business Information\nThe Jukebox API is provided by Jukebox Inc., a leading provider of digital jukebox solutions. By integrating this API into your application, you can enhance the user experience by offering a wide range of music options, creating personalized playlists, and providing seamless control over the jukebox's functionality. For more information about Jukebox Inc. and its services, please visit our website at [jukebox.com](https://www.jukebox.com).\n​\nFeel free to customize the business information section according to your requirements.",
         "version": "3.0.0"
     },
     "tags": [
