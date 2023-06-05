@@ -1034,8 +1034,7 @@
         },
         "/songs": {
             "post": {
-                "summary": "Use below schema to generate new songs",
-                "description" : "hello",
+                "summary": "testing summary",
                 "tags": [
                     "songs"
                 ],
