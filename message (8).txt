@@ -1,0 +1,1843 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "JukeBox",
+        "description": "This is Description",
+        "version": "3.0.0"
+    },
+    "tags": [
+        {
+            "name": "artist",
+            "description": "Description about Artist resource"
+        },
+        {
+            "name": "album",
+            "description": "Description about Album resource"
+        },
+        {
+            "name": "songs",
+            "description": "Description about Song resource"
+        }
+    ],
+    "paths": {
+        "/artist": {
+            "post": {
+                "summary": "Use below schema to generate new artist",
+                "tags": [
+                    "artist"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/artist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "The resource has been created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all instances of artist",
+                "tags": [
+                    "artist"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents for this resource, use this parameter",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents and order for this resource, use this parameter",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "desc",
+                                "asc"
+                            ]
+                        },
+                        "example": "desc"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "to fetch limited documents per page, use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "to paginate documents , use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/artist"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/artist/{id}": {
+            "put": {
+                "summary": "Update the specified instance of artist by id",
+                "tags": [
+                    "artist"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the artist",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "artist content",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/artist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete the specified instance of artist by id",
+                "tags": [
+                    "artist"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the artist",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The resource has been removed"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve the specified instance of artist by id",
+                "tags": [
+                    "artist"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the artist",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/artist/aggregations": {
+            "post": {
+                "description": "This API entails obtaining a particular attribute aggregated by using one of several supported aggregation methods on the given resource - artist.\n\n      Supported aggregation type - The supported aggregation methods include sum, max, min, count, distinct, and avg.\n\n      For instance, to obtain the desired attribute, you must specify the name of the field as the \"key\" and select one or more aggregation methods from the list provided as \"aggregations.\" As an example, if you wanted to get the sum, minimum, and count of a particular field, you would write: \n\n      {\n        key: \"field_name\",\n        aggregations: [\"sum\", \"min\", \"count\"]\n      }.",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "artist"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "aggregations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "key": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "sample": {
+                                    "value": "{\n    \"input\": [{\n        \"key\": \"age\",\n        \"aggregations\": [ \"max\"]\n    }]\n}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/artist/bulk-upload": {
+            "post": {
+                "description": "API for uploading CSV/JSON files for creating data in bulk",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "artist"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": false
+                                    }
+                                }
+                            },
+                            "encoding": {
+                                "file": {
+                                    "style": "form"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/artist"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/album": {
+            "post": {
+                "summary": "Use below schema to generate new album",
+                "tags": [
+                    "album"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/album"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "The resource has been created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/album"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all instances of album",
+                "tags": [
+                    "album"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents for this resource, use this parameter",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents and order for this resource, use this parameter",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "desc",
+                                "asc"
+                            ]
+                        },
+                        "example": "desc"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "to fetch limited documents per page, use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "to paginate documents , use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/album"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/album/{id}": {
+            "put": {
+                "summary": "Update the specified instance of album by id",
+                "tags": [
+                    "album"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the album",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "album content",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/album"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/album"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete the specified instance of album by id",
+                "tags": [
+                    "album"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the album",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The resource has been removed"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve the specified instance of album by id",
+                "tags": [
+                    "album"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the album",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/album"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/album/aggregations": {
+            "post": {
+                "description": "This API entails obtaining a particular attribute aggregated by using one of several supported aggregation methods on the given resource - album.\n\n      Supported aggregation type - The supported aggregation methods include sum, max, min, count, distinct, and avg.\n\n      For instance, to obtain the desired attribute, you must specify the name of the field as the \"key\" and select one or more aggregation methods from the list provided as \"aggregations.\" As an example, if you wanted to get the sum, minimum, and count of a particular field, you would write: \n\n      {\n        key: \"field_name\",\n        aggregations: [\"sum\", \"min\", \"count\"]\n      }.",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "album"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "aggregations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "key": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "sample": {
+                                    "value": "{\n    \"input\": [{\n        \"key\": \"age\",\n        \"aggregations\": [ \"max\"]\n    }]\n}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/album"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/album/bulk-upload": {
+            "post": {
+                "description": "API for uploading CSV/JSON files for creating data in bulk",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "album"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": false
+                                    }
+                                }
+                            },
+                            "encoding": {
+                                "file": {
+                                    "style": "form"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/album"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/songs": {
+            "post": {
+                "summary": "Use below schema to generate new songs",
+                "tags": [
+                    "songs"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/songs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "The resource has been created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/songs"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all instances of songs",
+                "tags": [
+                    "songs"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents for this resource, use this parameter",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "required": false,
+                        "description": "to sort documents and order for this resource, use this parameter",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "desc",
+                                "asc"
+                            ]
+                        },
+                        "example": "desc"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "to fetch limited documents per page, use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "to paginate documents , use this parameter",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/songs"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/songs/{id}": {
+            "put": {
+                "summary": "Update the specified instance of songs by id",
+                "tags": [
+                    "songs"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the songs",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "songs content",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/songs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/songs"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete the specified instance of songs by id",
+                "tags": [
+                    "songs"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the songs",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The resource has been removed"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve the specified instance of songs by id",
+                "tags": [
+                    "songs"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the songs",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "required": false,
+                        "description": "to include relationships for this resource, use this parameter",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/songs"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/songs/aggregations": {
+            "post": {
+                "description": "This API entails obtaining a particular attribute aggregated by using one of several supported aggregation methods on the given resource - songs.\n\n      Supported aggregation type - The supported aggregation methods include sum, max, min, count, distinct, and avg.\n\n      For instance, to obtain the desired attribute, you must specify the name of the field as the \"key\" and select one or more aggregation methods from the list provided as \"aggregations.\" As an example, if you wanted to get the sum, minimum, and count of a particular field, you would write: \n\n      {\n        key: \"field_name\",\n        aggregations: [\"sum\", \"min\", \"count\"]\n      }.",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "songs"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "aggregations": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "key": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "sample": {
+                                    "value": "{\n    \"input\": [{\n        \"key\": \"age\",\n        \"aggregations\": [ \"max\"]\n    }]\n}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/songs"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/songs/bulk-upload": {
+            "post": {
+                "description": "API for uploading CSV/JSON files for creating data in bulk",
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "The x-api-key in header for Authorization",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eee9e6ea-33a5-4130-858f-383bfd25c61f"
+                    }
+                ],
+                "tags": [
+                    "songs"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": false
+                                    }
+                                }
+                            },
+                            "encoding": {
+                                "file": {
+                                    "style": "form"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The aggregations method fetch result",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/songs"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "artist": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "bio": {
+                        "type": "string",
+                        "description": ""
+                    }
+                },
+                "required": [],
+                "additionalProperties": false
+            },
+            "album": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": ""
+                    }
+                },
+                "required": [],
+                "additionalProperties": false
+            },
+            "songs": {
+                "type": "object",
+                "properties": {
+                    "artist_id": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "album_id": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "releaseDate": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "marketPrice": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "logo": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "spotify_url": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "youtube_url": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "itunes_url": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "played": {
+                        "type": "object",
+                        "properties": {
+                            "spotify_count": {
+                                "type": "integer",
+                                "description": ""
+                            },
+                            "youtube_count": {
+                                "type": "integer",
+                                "description": ""
+                            },
+                            "itunes_count": {
+                                "type": "integer",
+                                "description": ""
+                            },
+                            "prime_music_count": {
+                                "type": "integer",
+                                "description": ""
+                            }
+                        },
+                        "required": []
+                    },
+                    "open_price": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "day_high": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "day_low": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "closing_price": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "maxSupply": {
+                        "type": "number",
+                        "description": ""
+                    },
+                    "artistIncome": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "investorCount": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "paidToInvestor": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "#paymentToInvestor": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "lastDividend": {
+                        "type": "number",
+                        "description": ""
+                    }
+                },
+                "required": [],
+                "additionalProperties": false
+            }
+        },
+        "responses": {
+            "400": {
+                "description": "Bad Request",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        400
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "BAD_REQUEST"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "401": {
+                "description": "Unauthorized",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        401
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "UNAUTHORIZED"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "403": {
+                "description": "Forbidden",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        403
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "FORBIDDEN"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "404": {
+                "description": "Resource not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        404
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Api with JukeBox not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "500": {
+                "description": "Internal Server Error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        500
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "UNEXPECTED_SERVER_ERROR"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "504": {
+                "description": "Gateway Timeout",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "enum": [
+                                        504
+                                    ]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "REQUEST_TIMEOUT"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiAccesskey": {
+                "type": "apiKey",
+                "name": "x-api-key",
+                "in": "header"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://api.stage.satschel.com/v2/apidesigner/client/JukeBox"
+        }
+    ]
+}
