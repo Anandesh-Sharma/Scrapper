@@ -1035,6 +1035,18 @@
         "/songs": {
             "post": {
                 "summary": "Use below schema to generate new songs",
+                "x-code-samples": [
+                  {
+                    "lang": "js",
+                    "label": "JS - Node",
+                    "source": "var request = require('request');\nvar headers = {\n'accept': 'application/json',\n'content-type': 'application/json'\n};\nvar options = {\nurl: 'https://api.stage.satschel.com/v2/apidesigner/client/JukeBox/songs',\nmethod: 'POST',\nheaders: headers\n};\nfunction callback(error, response, body) {\nif (!error && response.statusCode == 200) {\nconsole.log(body);\n}\n}\nrequest(options, callback);"
+                  },
+                  {
+                    "lang": "js",
+                    "label": "JS - JQuery",
+                    "source": "const settings = {\n"async": true,\n"crossDomain": true,\n"url": "https://api.stage.satschel.com/v2/apidesigner/client/JukeBox/songs",\n"method": "POST",\n"headers": {\n"accept": "application/json",\n"content-type": "application/json"\n}\n};\n$.ajax(settings).done(function (response) {\nconsole.log(response);\n});"
+                  }
+                ],
                 "tags": [
                     "songs"
                 ],
